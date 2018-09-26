@@ -1,0 +1,50 @@
+<div class="jumbotron jumbotron-fluid">
+	  <div class="container">
+		<div class="burgertimeImage">
+			<img src="assets/img/burgertime2.gif"/>
+		</div>
+	  </div>
+	</div>
+	<div class="container add_burger">
+			<form>
+			  <div class="form-group">
+				<label for="burger">Burger</label>
+				<input type="text" class="form-control form-control-lg" id="burger" name="name">
+			  </div>
+			  <button type="submit" class="btn btn-primary" id="addburger">Add</button>
+			</form>
+		 <div class="row burgertime">
+			<div class="col-sm leftside">
+			{{#each burger_name}}
+				{{#unless devoured}}
+				  <div class="card">
+				  <div class="card-body">
+					{{burger_name}}
+					<div class="text-center">
+						
+						<button type="button" class="btn btn-primary2 devoured" data-id="{{id}}">Devour It!</button>
+					</div>
+				  </div>
+				</div>
+				{{/unless}}
+			  {{/each}}
+			</div>
+			<div class="col-sm rightside">
+				<ul>
+				  {{#each burger_name}}
+					{{#if devoured}}
+					  <div class="card">
+						  <div class="card-body">
+							{{burger_name}}
+							<div class="text-center">
+								<button type="button" class="btn btn-burger">Devoured</button>
+							</div>
+						  </div>
+						</div>
+					{{/if}}
+				  {{/each}}
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
