@@ -1,0 +1,58 @@
+.jumbotron {
+	background-image: url("../img/philip-strong-213128-unsplash.jpg");
+	background-position: bottom;
+	background-repeat: no-repeat;
+	 background-size: cover;
+}
+
+.hero-box {
+	background-color: rgb(255, 255, 255, .9);
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+h1 {
+	margin-left: 2rem;
+}
+
+.lead {
+	margin-left: 4rem;
+	font-size: 1.5rem;
+}
+
+.btn-light {
+	margin-left: 1rem;
+}
+
+.bg-dark {
+	background-color: #111!important;
+}
+
+.card, .no-articles {
+	margin: 1rem;
+}
+
+.card-header {
+	background-color: #111;
+	
+}
+
+.headline {
+	color: #f8f9fa;
+	
+}
+
+.headline:hover {
+	color: #ccc;
+	text-decoration: none;
+	
+}
+
+.note {
+	margin: 0 1rem;
+}
+
+.alert>span {
+	font-weight: 500;
+	cursor: pointer;
+}

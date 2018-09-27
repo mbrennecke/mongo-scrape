@@ -7,8 +7,30 @@ var db = require("../models");
 // Routes
 // =============================================================
 module.exports = function(app) {
+	
+		app.get("/", function(req, res) {
+			db.Article.find({})
+			.then(function(dbArticle) {
+				var hbsObject;
+			  // If we were able to successfully find Articles, send them back to the client
+			  dbArticle.forEach(function(item){
+				 hbsObject = {
+				  title: item.title,
+				  link: item.link,
+				  summary: item.summary
+				}
+			  })
+			  
+			  console.log(hbsObject);
+			  res.render("index", hbsObject);
+			})
+			.catch(function(err) {
+			  // If an error occurred, send it to the client
+			  res.json(err);
+			});
+		});
 
-	app.get("/", function(req, res) {
+	app.get("/scrape", function(req, res) {
 	  // First, we grab the body of the html with axios
 	  axios.get("https://www.washingtonpost.com").then(function(response) {
 		// Then, we load that into cheerio and save it to $ for a shorthand selector
@@ -40,7 +62,7 @@ module.exports = function(app) {
 		});
 
 		// If we were able to successfully scrape and save an Article, send a message to the client
-		res.send("Scrape Complete");
+		res.sendStatus(200);
 	  });
 	});
 
