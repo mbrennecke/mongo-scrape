@@ -8,21 +8,10 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 	
-		app.get("/", function(req, res) {
+		app.get("/articles", function(req, res) {
 			db.Article.find({})
 			.then(function(dbArticle) {
-				var hbsObject;
-			  // If we were able to successfully find Articles, send them back to the client
-			  dbArticle.forEach(function(item){
-				 hbsObject = {
-				  title: item.title,
-				  link: item.link,
-				  summary: item.summary
-				}
-			  })
-			  
-			  console.log(hbsObject);
-			  res.render("index", hbsObject);
+				res.json(dbArticle)
 			})
 			.catch(function(err) {
 			  // If an error occurred, send it to the client
